@@ -10,6 +10,7 @@ export const ColumnToggleFeature = () => {
     const dispatch = useDispatch()
     const columns = useSelector((state)=>state.table.attributes)
     console.log("DATA RECIEVED",columns)
+
   return (
     <div className='flex p-5 m-2 border-2 rounded transition'>
         {

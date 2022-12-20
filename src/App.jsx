@@ -3,6 +3,7 @@ import AttributeIcon from './components/AttributeIcon';
 import IconComponent from './components/IconComponent';
 import Button from './components/Button';
 import { ColumnToggleFeature } from './features/table/ColumnToggleFeature';
+import { TableView } from './features/table/TableView';
 
 function App() {
 
@@ -13,6 +14,7 @@ function App() {
         Analytics
       </header>
       <ColumnToggleFeature />
+      <TableView />
 
       <IconComponent text="TEST" onClick={()=>console.log("hello")}/>
       <AttributeIcon attributeName="TEST" isVisible={true} onClick={()=>console.log("hello")}/>

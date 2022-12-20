@@ -47,8 +47,11 @@ const tableSlice = createSlice({
     reducers:{
         changeVisibility:(state,action)=>{
             state.attributes.forEach((singleAttrib)=>{
-                if(singleAttrib.nameOfAttribute === action.payload.nameOfAttribute){
-                    singleAttrib.visible = action.payload.visible
+                if(singleAttrib.nameOfAttribute === action.payload.nameOfAttribute ){
+                    if(singleAttrib.nameOfAttribute === "Date" || singleAttrib.nameOfAttribute === "App Name"){
+                        alert(`${singleAttrib.nameOfAttribute} can't be removed`)
+                    }
+                    else {singleAttrib.visible = action.payload.visible}
                 }
             })
         }
