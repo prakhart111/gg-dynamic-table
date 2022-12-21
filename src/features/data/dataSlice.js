@@ -23,7 +23,7 @@ const dataSlice = createSlice({
         })
         builder.addCase(fetchData.fulfilled,(state,action)=>{
             state.loading = false
-            state.users = action.payload
+            state.data = action.payload
         })
         builder.addCase(fetchData.rejected,(state)=>{
             state.loading = false
