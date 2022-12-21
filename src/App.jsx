@@ -4,6 +4,7 @@ import IconComponent from './components/IconComponent';
 import Button from './components/Button';
 import { ColumnToggleFeature } from './features/table/ColumnToggleFeature';
 import { TableView } from './features/table/TableView';
+import { SharedLink } from './features/table/SharedLink';
 
 function App() {
 
@@ -14,13 +15,15 @@ function App() {
         Analytics
       </header>
       <ColumnToggleFeature />
+      {/* <SharedLink /> */}
       <TableView />
+      
 
-      <IconComponent text="TEST" onClick={()=>console.log("hello")}/>
+      {/* <IconComponent text="TEST" onClick={()=>console.log("hello")}/>
       <AttributeIcon attributeName="TEST" isVisible={true} onClick={()=>console.log("hello")}/>
       <AttributeIcon attributeName="TEST" isVisible={false} onClick={()=>console.log("hello")}/>
       <Button text="Apply" fill={true}  onClick={()=>console.log("hello")} />
-      <Button text="Apply" fill={false}  onClick={()=>console.log("hello")} />
+      <Button text="Apply" fill={false}  onClick={()=>console.log("hello")} /> */}
     </div>
     </div>
   )
