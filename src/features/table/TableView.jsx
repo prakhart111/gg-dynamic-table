@@ -1,9 +1,16 @@
 import React from 'react'
 import { useSelector,useDispatch } from 'react-redux'
-
+import { fetchData } from '../data/dataSlice'
 
 export const TableView = () => {
+
   const columns = useSelector((state)=>state.table.attributes)
+  const dispatch = useDispatch()
+
+  React.useEffect(()=>{
+    dispatch(fetchData())
+  },[])
+  
   return (
     <div>
         <table className='border-2 transition'>
