@@ -14,6 +14,7 @@ export const fetchData = createAsyncThunk('data/fetchData',()=>{
     .then((response)=>response.data)
 })
 
+
 const dataSlice = createSlice({
     name:"data",
     initialState,
