@@ -5,6 +5,7 @@ const initialState = {
         attribute:null,
         type:"",
     },
+    sharedLink:"",
     attributes:[
         {
             nameOfAttribute:"Date",
@@ -54,13 +55,17 @@ const tableSlice = createSlice({
                     else {singleAttrib.visible = action.payload.visible}
                 }
             })
+        },
+        getInvisibleAttributeString:(state)=>{
+            state.attributes.forEach((singleAttrib)=>{
+                if(singleAttrib?.visible === false){
+                    state.sharedLink.concat(`?${singleAttrib?.nameOfAttribute}=FALSE`) 
+                }
+            })
         }
     }
 })
 
 
-// const BASE_URL = process.env.BASE_URL
-// const MAIN_URL = BASE_URL + "report?startDate=2021-05-01&endDate=2021-05-01"
-
 export default tableSlice.reducer
-export const {changeVisibility} = tableSlice.actions
+export const {changeVisibility,getInvisibleAttributeString} = tableSlice.actions

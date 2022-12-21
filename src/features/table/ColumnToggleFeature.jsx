@@ -2,7 +2,7 @@
 // reorder it as well
 
 import React from 'react'
-import { changeVisibility } from './tableSlice'
+import { changeVisibility,getInvisibleAttributeString } from './tableSlice'
 import { useSelector,useDispatch } from 'react-redux'
 import AttributeIcon from '../../components/AttributeIcon'
 
@@ -23,6 +23,7 @@ export const ColumnToggleFeature = () => {
                         nameOfAttribute:col.nameOfAttribute,
                         visible:!col.visible,
                     }))
+                    dispatch(getInvisibleAttributeString())
                 }}/>
             })
         }

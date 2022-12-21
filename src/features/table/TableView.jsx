@@ -2,8 +2,7 @@ import React from 'react'
 import { useSelector,useDispatch } from 'react-redux'
 import { fetchData } from '../data/dataSlice'
 import './table.css'
-import axios from 'axios'
-import { getDate,formatNumbers,getGameName } from '../../utils/util_functions'
+import { getDataColumnWise } from '../../utils/util_functions'
 
 export const TableView = () => {
 
@@ -14,49 +13,8 @@ export const TableView = () => {
   React.useEffect(()=>{
     dispatch(fetchData())
   },[])
-
-  // rearranging data based on columns
-  const newData = {
-    "Date":[],
-    "App Name":[],
-    "Ad Request":[],
-    "Ad Response":[],
-    "Impressions":[],
-    "Click":[],
-    "Fill Rate":[],
-    "CTR":[],
-  }
-  console.log(newData["Date"]);
   
-  columns?.forEach((col)=>{
-    rows?.forEach((row)=>{
-      switch(col?.nameOfAttribute){
-        case "Date":
-          newData["Date"].push(getDate(row?.date));
-          break;
-        case "App Name":
-          newData["App Name"].push(getGameName(row?.app_id))
-          break;
-        case "Ad Request":
-          newData["Ad Request"].push(formatNumbers(row?.requests));
-          break;
-        case "Ad Response":
-          newData["Ad Response"].push(formatNumbers(row?.responses));
-          break;
-        case "Impressions":
-          newData["Impressions"].push(formatNumbers(row?.impressions));
-          break;
-        case "Click":
-          newData["Click"].push(formatNumbers(row?.clicks));
-          break;
-        case "Fill Rate":
-          newData["Fill Rate"].push( `${(row?.requests / row?.responses).toFixed(4) *100}%` );
-          break;
-        case "CTR":
-          newData["CTR"].push( `${(row?.clicks/row?.impressions).toFixed(3) *100}%`)
-      }
-    })
-  })
+  const newData = getDataColumnWise(columns,rows);
 
   return (
     <div>
