@@ -4,6 +4,14 @@
 
 Deploy Link : https://golden-eclair-d1c084.netlify.app/
 
+### Tech Stack & Packages used
+- React
+- Redux Toolkit
+- Tailwind CSS ( for providing basic styling )
+- Axios
+
+** no other packages were used **
+
 ### DONE
 - Column toggle (select/deselect column)
 - filter as per dates
@@ -15,4 +23,6 @@ Deploy Link : https://golden-eclair-d1c084.netlify.app/
 
 ### Challenges, that I couldn't figure out till now
 - Sorting, Filtering the entire table
+
+
 
