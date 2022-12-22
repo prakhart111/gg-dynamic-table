@@ -1,7 +1,7 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit"
 import axios from "axios"
 
-const API = "http://go-dev.greedygame.com/v3/dummy/report?";
+const API = "https://go-dev.greedygame.com/v3/dummy/report?";
 
 const initialState = {
     loading:false,
