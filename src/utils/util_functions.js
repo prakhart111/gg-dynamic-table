@@ -1,5 +1,5 @@
 export const getDate = (date)=>{
-    return `${date.slice(0,4)}/${date.slice(5,7)}/${date.slice(8,10)}`
+    return `${date.slice(0,4)}-${date.slice(5,7)}-${date.slice(8,10)}`
   }
 export const formatNumbers = (number)=>{
     const NumberFormatter = new Intl.NumberFormat("en-IN");
@@ -67,4 +67,19 @@ export const getDataColumnWise = (columns,rows)=>{
       })
 
       return newData;
+}
+
+export const checkValidDate = (dates)=>{
+  let startDate = new Date(
+    dates.startDate.slice(0,4),
+    dates.startDate.slice(5,7),
+    dates.startDate.slice(8,10),
+  )
+
+  let endDate = new Date(
+    dates.endDate.slice(0,4),
+    dates.endDate.slice(5,7),
+    dates.endDate.slice(8,10),
+  )
+    return startDate <= endDate
 }

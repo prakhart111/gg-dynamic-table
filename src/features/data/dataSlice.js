@@ -1,7 +1,7 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit"
 import axios from "axios"
 
-const API = "http://go-dev.greedygame.com/v3/dummy/report?startDate=2021-05-01&endDate=2021-05-03";
+const API = "http://go-dev.greedygame.com/v3/dummy/report?";
 
 const initialState = {
     loading:false,
@@ -9,8 +9,9 @@ const initialState = {
     error:"",
 }
 
-export const fetchData = createAsyncThunk('data/fetchData',()=>{
-    return axios.get(API)
+export const fetchData = createAsyncThunk('data/fetchData',(dates)=>{
+    console.log("DATES",dates?.startDate,dates?.endDate);
+    return axios.get(API + `startDate=${dates?.startDate || "2021-05-01"}&endDate=${dates?.endDate || "2021-05-03"}`)
     .then((response)=>response.data)
 })
 
@@ -18,6 +19,8 @@ export const fetchData = createAsyncThunk('data/fetchData',()=>{
 const dataSlice = createSlice({
     name:"data",
     initialState,
+    reducer:{
+    },
     extraReducers:(builder)=>{
         builder.addCase(fetchData.pending,(state)=>{
             state.loading = true

@@ -59,13 +59,19 @@ const tableSlice = createSlice({
         getInvisibleAttributeString:(state)=>{
             state.attributes.forEach((singleAttrib)=>{
                 if(singleAttrib?.visible === false){
-                    state.sharedLink.concat(`?${singleAttrib?.nameOfAttribute}=FALSE`) 
+                    state.sharedLink = state.sharedLink + (state.sharedLink.length!==0 ? '&' : '?') +
+                    `${(singleAttrib?.nameOfAttribute.split(" ").length === 1)? singleAttrib?.nameOfAttribute : singleAttrib?.nameOfAttribute.split(" ")[1]}=FALSE`
                 }
             })
+        },
+        getLink:(state)=>{
+            navigator.clipboard.writeText(`${window.location.origin}/${state.sharedLink}`)
+            alert(`Copied to clipboard ! \n${window.location.origin}/${state.sharedLink}`)
         }
+        
     }
 })
 
 
 export default tableSlice.reducer
-export const {changeVisibility,getInvisibleAttributeString} = tableSlice.actions
+export const {changeVisibility,getInvisibleAttributeString,getLink} = tableSlice.actions

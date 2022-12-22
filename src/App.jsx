@@ -7,7 +7,6 @@ import { TableView } from './features/table/TableView';
 import { SharedLink } from './features/table/SharedLink';
 
 function App() {
-
   return (
     <div className="w-full text-center">
       <div className="bg-white">
@@ -15,7 +14,7 @@ function App() {
         Analytics
       </header>
       <ColumnToggleFeature />
-      {/* <SharedLink /> */}
+      <SharedLink />
       <TableView />
       
 
