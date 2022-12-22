@@ -9,9 +9,9 @@ const store = configureStore({
         table:tableReducer,
         data:dataReducer,
     },
-    middleware:(getDefaultMiddleware)=>{
-        return getDefaultMiddleware().concat(reduxLogger)
-    },
+    // middleware:(getDefaultMiddleware)=>{
+    //     return getDefaultMiddleware().concat(reduxLogger)
+    // },
 })
 
 export default store
